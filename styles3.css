@@ -1,0 +1,220 @@
+/* General reset and font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body styling */
+body {
+    background: linear-gradient(135deg, #000046 0%, #1cb5e0 100%);
+    /* Removed flex properties here as they are not needed for overall page layout with static header */
+    min-height: 100vh; /* Ensures body takes full viewport height */
+    color: #ffffff;
+    display: flex; /* Keep flexbox on body to arrange header and main vertically */
+    flex-direction: column; /* Stack header and main vertically */
+    align-items: center; /* Center content horizontally if needed */
+}
+
+/* Header styling */
+header {
+    /* REMOVE: position: absolute; */
+    /* REMOVE: top: 20px; */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px; /* Adjust padding as needed for vertical space */
+    z-index: 100; /* Keep if you have other overlapping elements */
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    background: #fff;
+    color: black;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    margin-right: 60px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: #333;
+}
+
+nav a:hover {
+    color: #333;
+    background: rgb(255, 255, 255);
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+.resume-button {
+    background: #333;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+}
+
+.resume-button:hover {
+    transform: scale(1.1);
+    background: #ffffff;
+    color: black;
+}
+
+/* Main content area */
+main {
+    flex-grow: 1; /* Allow main to take up remaining vertical space */
+    width: 100%; /* Ensure main takes full width */
+    padding-top: 20px; /* Add some padding to separate from header, adjust as needed */
+}
+
+.container { /* This class is not used in your HTML, consider removing or using it */
+    display: flex;
+    flex-direction: space-between; /* This should be 'justify-content' and 'space-between' is a value for it */
+    align-items: center;
+    margin: 80px 50px;
+    padding: 20px;
+    max-width: 2000px;
+    gap: 80px;
+}
+
+.projects-section {
+    /* Removed margin-top: 3.6rem; as it's not needed if header is in flow */
+    max-width: 1200px;
+    margin: 2rem auto; /* Adjust top margin as needed, 2rem is a good start */
+    padding: 0 1.5rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #ffffff; /* Changed to white as per background gradient */
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    color: #333; /* Ensure text inside card is visible against white background */
+}
+
+.project-card h3 {
+    color: #2d2d2d; /* Make project titles dark */
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.tech-tags {
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-tags span {
+    background: #e0e0e0; /* Slightly lighter tag background */
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #555; /* Darker tag text */
+}
+
+.project-description {
+    color: #555;
+    line-height: 1.6;
+    margin: 1rem 0;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.github-link, .demo-link {
+    padding: 0.5rem 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.github-link {
+    background: #2d2d2d;
+    color: white;
+}
+
+.github-link:hover {
+    background: #404040;
+}
+
+.demo-link {
+    border: 2px solid #2d2d2d;
+    color: #2d2d2d;
+}
+
+.demo-link:hover {
+    background: #2d2d2d;
+    color: white;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack logo and nav vertically */
+        padding: 15px 20px;
+    }
+    nav {
+        margin-top: 15px; /* Add space between logo and nav */
+    }
+    nav a {
+        margin: 5px 10px; /* Adjust spacing for smaller screens */
+        margin-right: 0; /* Remove extra right margin */
+    }
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+}
